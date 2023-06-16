@@ -3,6 +3,18 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sparepark/screens/auth/login.dart';
+import 'package:sparepark/screens/auth/register_screen.dart';
+import 'package:sparepark/screens/chat/chat_list.dart';
+import 'package:sparepark/screens/crud/admin/booking_adminlist.dart';
+import 'package:sparepark/screens/crud/admin/parking_adminlist.dart';
+import 'package:sparepark/screens/crud/admin/review_adminlist.dart';
+import 'package:sparepark/screens/crud/admin/users_adminlist.dart';
+import 'package:sparepark/screens/crud/bookings/booking_list.dart';
+import 'package:sparepark/screens/crud/parking/parking_list.dart';
+import 'package:sparepark/screens/crud/parking/register_car_parking.dart';
+import 'package:sparepark/screens/crud/reviews/review_list.dart';
+import 'package:sparepark/screens/crud/user/profile.dart';
 // import 'package:sparepark/screens/auth/login.dart';
 // import 'package:sparepark/screens/auth/register_screen.dart';
 // import 'package:sparepark/screens/chat/chat_list.dart';
@@ -195,14 +207,14 @@ class _AppDrawerState extends State<AppDrawer> {
               return ListTile(
                 title: const Text('Login'),
                 onTap: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (context) => AuthScreen(
-                  //       routePage: 'Drawer',
-                  //     ),
-                  //   ),
-                  // );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AuthScreen(
+                        routePage: 'Drawer',
+                      ),
+                    ),
+                  );
                 },
               );
             },
@@ -216,12 +228,12 @@ class _AppDrawerState extends State<AppDrawer> {
               return ListTile(
                 title: const Text('Register'),
                 onTap: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (context) => RegisterScreen(),
-                  //   ),
-                  // );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => RegisterScreen(),
+                    ),
+                  );
                 },
               );
             },
@@ -229,12 +241,12 @@ class _AppDrawerState extends State<AppDrawer> {
           ListTile(
             title: const Text('Register Parking Space'),
             onTap: () {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(
-              //     builder: (context) => RegisterParkingSpace(),
-              //   ),
-              // );
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => RegisterParkingSpace(),
+                ),
+              );
             },
           ),
           StreamBuilder<bool>(
@@ -251,12 +263,12 @@ class _AppDrawerState extends State<AppDrawer> {
                         ],
                       ),
                       onTap: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => UserProfilePage(),
-                        //   ),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => UserProfilePage(),
+                          ),
+                        );
                       },
                     ),
                     ListTile(
@@ -268,12 +280,12 @@ class _AppDrawerState extends State<AppDrawer> {
                         ],
                       ),
                       onTap: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => ChatList(),
-                        //   ),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ChatList(),
+                          ),
+                        );
                       },
                     ),
                     StreamBuilder<QuerySnapshot>(
@@ -286,14 +298,14 @@ class _AppDrawerState extends State<AppDrawer> {
                           title: const Text('My Bookings'),
                           onTap: () {
                             if (currentUser != null) {
-                              // Navigator.push(
-                              //   context,
-                              //   MaterialPageRoute(
-                              //     builder: (context) => BookingsPage(
-                              //       userId: currentUser!.uid.toString(),
-                              //     ),
-                              //   ),
-                              // );
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => BookingsPage(
+                                    userId: currentUser!.uid.toString(),
+                                  ),
+                                ),
+                              );
                             }
                           },
                         );
@@ -308,14 +320,14 @@ class _AppDrawerState extends State<AppDrawer> {
                         return ListTile(
                           title: const Text('My Parking Spaces'),
                           onTap: () {
-                            // Navigator.push(
-                            //   context,
-                            //   MaterialPageRoute(
-                            //     builder: (context) => ParkingPage(
-                            //       userId: currentUser!.uid.toString(),
-                            //     ),
-                            //   ),
-                            // );
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ParkingPage(
+                                  userId: currentUser!.uid.toString(),
+                                ),
+                              ),
+                            );
                           },
                         );
                       },
@@ -329,14 +341,14 @@ class _AppDrawerState extends State<AppDrawer> {
                         return ListTile(
                           title: const Text('My Reviews'),
                           onTap: () {
-                            // Navigator.push(
-                            //   context,
-                            //   MaterialPageRoute(
-                            //     builder: (context) => ReviewListPage(
-                            //       userId: currentUser!.uid.toString(),
-                            //     ),
-                            //   ),
-                            // );
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ReviewListPage(
+                                  userId: currentUser!.uid.toString(),
+                                ),
+                              ),
+                            );
                           },
                         );
                       },
@@ -385,49 +397,49 @@ class _AppDrawerState extends State<AppDrawer> {
                                 ListTile(
                                   title: const Text('Users List'),
                                   onTap: () {
-                                    // Navigator.push(
-                                    //   context,
-                                    //   MaterialPageRoute(
-                                    //     builder: (context) =>
-                                    //         UsersAdminListPage(),
-                                    //   ),
-                                    // );
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            UsersAdminListPage(),
+                                      ),
+                                    );
                                   },
                                 ),
                                 ListTile(
                                   title: const Text('Parking Spaces List'),
                                   onTap: () {
-                                    // Navigator.push(
-                                    //   context,
-                                    //   MaterialPageRoute(
-                                    //     builder: (context) =>
-                                    //         ParkingAdminListPage(),
-                                    //   ),
-                                    // );
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            ParkingAdminListPage(),
+                                      ),
+                                    );
                                   },
                                 ),
                                 ListTile(
                                   title: const Text('Bookings List'),
                                   onTap: () {
-                                    // Navigator.push(
-                                    //   context,
-                                    //   MaterialPageRoute(
-                                    //     builder: (context) =>
-                                    //         BookingAdminListPage(),
-                                    //   ),
-                                    // );
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            BookingAdminListPage(),
+                                      ),
+                                    );
                                   },
                                 ),
                                 ListTile(
                                   title: const Text('Reviews List'),
                                   onTap: () {
-                                    // Navigator.push(
-                                    //   context,
-                                    //   MaterialPageRoute(
-                                    //     builder: (context) =>
-                                    //         ReviewAdminListPage(),
-                                    //   ),
-                                    // );
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            ReviewAdminListPage(),
+                                      ),
+                                    );
                                   },
                                 ),
                               ],

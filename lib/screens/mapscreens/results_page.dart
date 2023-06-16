@@ -6,6 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:sparepark/screens/chat/chat_page.dart';
 // import 'package:sparepark/screens/auth/login.dart';
 // import 'package:sparepark/screens/chat/chat_page.dart';
 // import 'package:sparepark/screens/crud/bookings/create_booking.dart';
@@ -298,15 +299,15 @@ class _ResultsPageState extends State<ResultsPage> {
                                     //   ),
                                     // );
                                   } else {
-                                    // Navigator.push(
-                                    //   context,
-                                    //   MaterialPageRoute(
-                                    //     builder: (context) => ChatPage(
-                                    //       u_id: result[7],
-                                    //       currentUserId: _currentUserId,
-                                    //     ),
-                                    //   ),
-                                    // );
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => ChatPage(
+                                          u_id: result[7],
+                                          currentUserId: _currentUserId,
+                                        ),
+                                      ),
+                                    );
                                   }
                                 },
                                 child: Column(
